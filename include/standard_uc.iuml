@@ -1,0 +1,15 @@
+@startuml
+!include https://raw.githubusercontent.com/vzvznl/diagrammen/include/standard.iuml
+
+!includeurl https://raw.githubusercontent.com/ebbypeter/Archimate-PlantUML/master/Archimate.puml
+skinparam linetype ortho
+
+!unquoted procedure Node($e_alias, $e_label)
+   node "$e_label" <<$archimate/node>> as $e_alias
+!endprocedure
+
+!unquoted procedure B(e_alias, e_label)
+   rectangle "==e_label" as e_alias
+!endprocedure
+
+@enduml
