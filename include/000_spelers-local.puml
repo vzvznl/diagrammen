@@ -1,0 +1,24 @@
+@startuml spelers
+
+box "Zorgaanbieder 1"
+participant Zorgaanbieder as za_gbz1
+participant "Resource Client" as rc_gbz1
+end box
+
+box "VZVZ" 
+participant "ZORG-AB" as zab order 45
+participant "Autorisatie server" as autd order 60
+participant LSP as lsp order 80
+end box
+
+box "Zorgaanbieder 2"
+participant "Resource Client" as rc_gbz2 order 30
+participant Zorgaanbieder as za_gbz2 order 40
+end box
+
+box "Zorgaanbieder 3"
+participant "Resource Client" as rc_gbz3 order 90
+participant Zorgaanbieder as za_gbz3 order 100
+end box
+
+@enduml

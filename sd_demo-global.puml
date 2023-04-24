@@ -1,0 +1,9 @@
+@startuml
+!include https://raw.githubusercontent.com/vzvznl/diagrammen/main/include/standard_sd.iuml
+
+title Voorbeeld van een sequence diagram met globale links
+
+rc_gbz1 --> zab: GET organisation
+zab --> rc_gbz1: Response
+
+@enduml

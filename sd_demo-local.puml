@@ -1,0 +1,18 @@
+@startuml
+!include include/standard_sd-local.iuml
+
+title Voorbeeld van een sequence diagram met lokale links
+
+rc_gbz1 --> zab++: GET organisation
+zab --> rc_gbz1--: Response
+
+rc_gbz1 --> lsp: GET information from GBZ 3
+activate lsp
+lsp --> rc_gbz3: GET information
+activate rc_gbz3
+rc_gbz3 --> lsp: Response
+deactivate rc_gbz3
+lsp --> rc_gbz1: Response
+deactivate lsp
+
+@enduml
