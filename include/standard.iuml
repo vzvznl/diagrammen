@@ -1,5 +1,5 @@
 @startuml
-!include https://raw.githubusercontent.com/vzvznl/diagrammen/include/puml-theme-cerulean-vzvz.puml
+!include https://raw.githubusercontent.com/vzvznl/diagrammen/main/include/puml-theme-cerulean-vzvz.puml
 
 hide footbox
 
