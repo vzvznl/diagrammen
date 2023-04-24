@@ -4,6 +4,9 @@
 ''
 '' Author: Brett Schwarz
 '' Copyright (c) 2019 by Brett Schwarz
+''
+'' Adapted for the VZVZ colors
+''
 
 !$THEME = "cerulean-vzvz"
 
