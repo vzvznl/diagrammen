@@ -39,7 +39,7 @@ skinparam useBetaStyle false
 !$LIGHT = "#F8F9FA"
 !$DARK = "#343A40"
 
-!include vzvz_colors.puml
+!include https://raw.githubusercontent.com/vzvznl/diagrammen/main/include/vzvz_colors.puml
 
 '' *_LIGHT = tint (lighter) of the main color of 80%
 ''          where TINT is calculated by clr + (255-clr) * tint_factor
