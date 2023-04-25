@@ -6,7 +6,7 @@
 
 !$THEME = "vzvz"
 
-!include vzvz_colors.puml
+!include https://raw.githubusercontent.com/vzvznl/diagrammen/main/include/vzvz_colors.puml
 
 !$WHITE = "#fff"
 !$GRAY_DARK = "#5a5a5a"
