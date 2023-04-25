@@ -1,7 +1,77 @@
 @startuml
 !include https://raw.githubusercontent.com/vzvznl/diagrammen/main/include/standard.iuml
 
-!include https://raw.githubusercontent.com/vzvznl/diagrammen/main/include/000_spelers.puml
 hide unlinked
+skinparam BoxPadding 60
+skinparam style strictuml
+autonumber
+!pragma teoz true
+
+box "Patient" #LightBlue
+actor "\nPatient" as P
+end box
+
+box "DVZA" #Orange
+boundary "DVZA" as DVZA
+end box
+
+box "Extern \nSysteem" #LightGreen
+boundary "Extern\nSysteem" as ES
+end box
+
+box "Zorgaanbieder \nDossierhouder" #LightBlue
+actor "Zorgaanbieder\nDossierhouder" as DHB
+boundary "XIS\nDossierhouder" as XISDHB
+end box
+
+box "Zorgaanbieder \nOpvragend" #LightBlue
+actor "HAP/SEH" as HAP
+boundary "XIS HAP/SEH" as XISHAP
+end box
+
+box "Zorgaanbieder \nOpvragend" #LightBlue
+actor "Opvragende \nZorgaanbieder" as OV
+boundary "XIS \nOpvragende Zorgaanbieder" as XISOV
+end box
+
+box "Volgjezorg" #LightGreen
+boundary "Volgjezorg" as VJZ
+end box
+
+box "MITZ" #Green
+boundary "\n MITZ" as MITZ
+end box
+
+box "Zorg informatie \nmakelaar" #LightSkyBlue
+boundary "LSP" as LSP
+boundary "Selectie en \n determinatieservice" as SDS
+database "Verwijsindex" as LSPVWI #coral
+database "Actualiteits\nRegister" as LSPAR #LightSkyBlue
+database "Toestemmings\nabonnement\nRegister" as TAR
+database "Applicatie \nregister" as APR
+database "Signaal Abonnement\nRegister" as SAR
+end box
+
+box "Zorgaanbieder \nDossierhouder" #LightBlue
+actor "Zorgaanbieder\nDossierhouder" as DH
+boundary "XIS\nDossierhouder" as XISDH
+end box
+
+box "Zorg AB" #LightGreen
+boundary "Zorgadres\nboek" as ZAB
+end box
+
+box "Administratie" #LightGreen
+boundary "Contract\nAdministratie" as CAD
+end box
+
+box "MITZ" #LightGreen
+boundary "MITZ" as MITZ
+boundary "MITZ\nAutorisatie Server" as MITZAUT
+end box
+
+box "Vecozo" #LightGreen
+boundary "Vecozo" as VECOZO
+end box
 
 @enduml
