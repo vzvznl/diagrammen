@@ -1,7 +1,7 @@
 @startuml
 !include https://raw.githubusercontent.com/vzvznl/diagrammen/main/include/standard.iuml
 
-!include include/000_spelers-local.puml
+!include local/000_spelers-local.puml
 
 hide unlinked
 

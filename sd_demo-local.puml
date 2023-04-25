@@ -1,5 +1,5 @@
 @startuml
-!include include/standard_sd-local.iuml
+!include local/standard_sd-local.iuml
 
 title Voorbeeld van een sequence diagram met lokale links
 
