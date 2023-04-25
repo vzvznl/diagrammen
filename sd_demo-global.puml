@@ -3,7 +3,7 @@
 
 title Voorbeeld van een sequence diagram met globale links
 
-rc_gbz1 --> zab: GET organisation
-zab --> rc_gbz1: Response
+XISDHB --> ZAB: GET organisation
+ZAB --> XISDHB: Response
 
 @enduml
