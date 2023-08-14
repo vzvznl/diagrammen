@@ -1,0 +1,35 @@
+@startuml
+!pragma teoz true
+remove  @unlinked
+
+!include USMBase.iuml
+
+Afspreken1  -> A1: Wens
+A1 -> A2
+A2 -> A3
+A3 -> A4
+A4 -> A5
+A5 -> A6
+
+A6 --> W1 : RFC
+W1 -> W2
+W2 -> W3
+W3 -> W4
+W4 -> W5
+W5 -> W6
+
+W6 --> U1 : Service Request
+U1 -> U2
+U2 -> U3
+U3 -> U4
+U4 -> U5
+U5 -> U6
+
+U6 -U-> W7
+W7 -> W8
+W8 -> W9
+
+W9 -U-> A7
+A7 -> A8
+
+@enduml

@@ -1,0 +1,75 @@
+@startuml
+skinparam state{
+ BackgroundColor<<Verbeteren>> Orange
+ BackgroundColor<<Afspreken>> SkyBlue
+ BackgroundColor<<Wijzigen>> Yellow
+ BackgroundColor<<Uitvoeren>> LightGreen
+ BackgroundColor<<Herstellen>> Red
+}
+
+state "Verbeteren" as Verbeteren1 <<Verbeteren>> {
+    state "Identificeren\nRisico" as V1 <<Verbeteren>>
+    state "Classificeren" as V2 <<Verbeteren>>
+    state "Vastellen\nOorzaak" as V3 <<Verbeteren>>
+    state "Selecteren\nMaatregelen" as V4 <<Verbeteren>>
+    state "Doorvoeren\nMaatregelen" as V5 <<Verbeteren>>
+}
+
+state "Verbeteren" as Verbeteren2 <<Verbeteren>> {
+    state "Toetsen\nOplevering\n&\nTerugkoppeling" as V6 <<Verbeteren>>
+    state "Evalueren\n&\nAfsluiten" as V7 <<Verbeteren>>
+}
+
+state "Afspreken" as Afspreken1 <<Afspreken>> {
+    state "Aannemen\nWensen" as A1 <<Afspreken>>
+    state "Classificeren" as A2 <<Afspreken>>
+    state "Specificeren\nService" as A3 <<Afspreken>>
+    state "Opstellen Offerte" as A4 <<Afspreken>>
+    state "Onderhandelen" as A5 <<Afspreken>>
+    state "Realiseren" as A6 <<Afspreken>>
+}
+
+state "Afspreken" as Afspreken2 <<Afspreken>> {
+    state "Toetsen\nOplevering\n&\nTerugkoppeling" as A7 <<Afspreken>>
+    state "Evalueren\n&\nAfsluiten" as A8 <<Afspreken>>
+}
+
+state "Wijzigen" as Wijzigen1 <<Wijzigen>>  {
+    state "Aannemen\nRFC" as W1 <<Wijzigen>>
+    state "Classificeren" as W2 <<Wijzigen>>
+    state "Plannen\n&\Accorderen" as W3 <<Wijzigen>>
+    state "Voorbereiden\nWijziging" as W4 <<Wijzigen>>
+    state "Testen\n&\nVrijgeven" as W5 <<Wijzigen>>
+    state "Implementeren" as W6 <<Wijzigen>>
+}
+
+state "Wijzigen" as Wijzigen2 <<Wijzigen>>  {
+    state "Toetsen\nOplevering\n&\nTerugkoppeling" as W7 <<Wijzigen>>
+    state "Bijwerken BIR" as W8 <<Wijzigen>>
+    state "Evalueren\n&\nAfsluiten" as W9 <<Wijzigen>>
+}
+
+
+state "Herstellen" as Herstellen1  <<Herstellen>> {
+    state "Aannemen\nIncidenten" as H1 <<Herstellen>>
+    state "Classificeren" as H2 <<Herstellen>>
+    state "Analyseren" as H3 <<Herstellen>>
+    state "Voorbereiden\nHerstel" as H4 <<Herstellen>>
+    state "Herstellen" as H5 <<Herstellen>>
+}
+
+state "Herstellen" as Herstellen2  <<Herstellen>> {
+    state "Toetsen\nOplevering\n&\nTerugkoppeling" as H6 <<Herstellen>>
+    state "Evalueren\n&\nAfsluiten" as H7 <<Herstellen>>
+}
+
+state Uitvoeren <<Uitvoeren>>{
+    state "Aannemen\nService Request"  as U1 <<Uitvoeren>>
+    state "Classificeren" as U2 <<Uitvoeren>>
+    state "Plannen\nWerkzaamheden" as U3 <<Uitvoeren>>
+    state "Uitvoeren\nWerkzaamheden" as U4 <<Uitvoeren>>
+    state "Toetsen\nOplevering\n&\nTerugkoppeling" as U5 <<Uitvoeren>>
+    state "Evalueren\n&\nAfsluiten" as U6 <<Uitvoeren>>
+}
+
+@enduml
