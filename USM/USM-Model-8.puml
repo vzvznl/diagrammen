@@ -2,7 +2,7 @@
 !pragma teoz true
 remove  @unlinked
 
-!include USMBase.iuml
+!include https://raw.githubusercontent.com/vzvznl/diagrammen/main/USM/USMBase.iuml
 
 Verbeteren1 -> V1 : risico
 V1 -> V2

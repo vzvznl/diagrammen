@@ -2,7 +2,7 @@
 !pragma teoz true
 remove  @unlinked
 
-!include USMBase.iuml
+!include https://raw.githubusercontent.com/vzvznl/diagrammen/main/USM/USMBase.iuml
 
 Herstellen1 -> H1 :Incident
 H1 -> H2

@@ -2,7 +2,7 @@
 !pragma teoz true
 remove  @unlinked
 
-!include USMBase.iuml
+!include https://raw.githubusercontent.com/vzvznl/diagrammen/main/USM/USMBase.iuml
 
 Verbeteren1 -> V1 : risico
 V1 -> V2
@@ -10,14 +10,9 @@ V2 -> V3
 V3 -> V4
 V4 -> V5
 
-V5  --> A1: Wens
-A1 -> A2
-A2 -> A3
-A3 -> A4
-A4 -> A5
-A5 -> A6
 
-A6 --> W1 : RFC
+
+V5 --> W1 : RFC
 W1 -> W2
 W2 -> W3
 W3 -> W4
@@ -35,10 +30,11 @@ U6 -U-> W7
 W7 -> W8
 W8 -> W9
 
-W9 -U-> A7
-A7 -> A8
-
-A8 -U-> V6
+W9 -U-> V6
 V6 -> V7
+
+
+
+
 
 @enduml
