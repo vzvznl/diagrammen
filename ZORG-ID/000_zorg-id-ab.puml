@@ -1,0 +1,61 @@
+@startuml
+title ZORG-AB – ZORG-ID sessie- en QR-codeproces
+
+autonumber
+
+actor User
+participant "ZORG-AB" as ZAB
+participant "ZORG-ID SDK" as SDK
+participant "Mobile App" as APP
+
+== Inloggen en sessie openen ==
+
+User -> ZAB: Login
+activate ZAB
+
+ZAB -> ZAB: Select Authenticatie middel
+ZAB -> SDK: Open sessie (opt 0: URA)
+activate SDK
+
+SDK --> ZAB: Nonce
+
+ZAB -> ZAB: Genereer QR-code
+
+== QR-code scannen ==
+
+User -> APP: Read QR-code
+APP -> ZAB: Scan QR-code
+
+== Sessie ophalen en accepteren ==
+
+APP -> SDK: Get sessie
+SDK --> APP: Sessiegegevens
+APP -> APP: Render sessiegegevens 
+
+APP -> APP: Optioneel: Context keuze?
+
+User -> APP: Accept sessie (opt 3: select URA)
+
+
+
+APP -> SDK: Accept sessie (opt 2: selected URA)
+
+== Sessie activeren ==
+
+SDK -> ZAB: Sessie geopend (opt 1: Lijst URA's)
+
+ZAB -> SDK: opt 4: Query op URA
+SDK --> ZAB: Taakcodes behorende bij URA
+note right of SDK
+  **Identiteitsgerelateerde informatie bij het openen van een sessie**
+  1. Gebruikersnaam (identity username)
+  2. Landelijk vastgestelde identiteitsattributen
+     - Sleutel-waardeparen: rolcode(s)
+  3. Organisatiegerelateerde identiteitsattributen
+     - Sleutel-waardeparen: taakcode(s)
+end note
+
+
+deactivate SDK
+deactivate ZAB
+@enduml
