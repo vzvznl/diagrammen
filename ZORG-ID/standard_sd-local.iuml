@@ -1,7 +1,7 @@
 @startuml
 '!include https://raw.githubusercontent.com/vzvznl/diagrammen/main/include/standard.iuml
 
-!include local/000_zorg-id-ab.puml
+!include ZORG-ID/000_zorg-id-ab.puml
 
 hide unlinked
 
