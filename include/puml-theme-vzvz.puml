@@ -178,6 +178,9 @@ skinparam useBetaStyle true
 		FontColor $WARNING_TEXT
 	}
   }
+  participant {
+	Padding 30
+  }
 </style>
 ''
 '' Global Default Values
@@ -187,7 +190,6 @@ skinparam defaultFontSize        12
 skinparam dpi                    100
 skinparam shadowing              false
 skinparam roundcorner            20
-skinparam ParticipantPadding     30
 skinparam BoxPadding             40
 skinparam Padding                8
 skinparam ArrowColor             $GRAY
