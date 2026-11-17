@@ -1,0 +1,79 @@
+@startuml
+title DEZI-pilot EnigmaCare – Authenticatie, certificaatuitgifte en LSP-bevraging
+
+autonumber
+hide footbox
+skinparam sequenceMessageAlign center
+skinparam responseMessageBelowArrow true
+
+actor "Zorgmedewerker" as ZM
+participant "Zorgaanbieder" as ZA
+participant "EnigmaCare" as EC
+participant "DEZI / CIBG" as DEZI
+participant "ZORG-ID SDK" as SDK
+participant "ZORG-ID Token CA" as CA
+participant "LSP" as LSP
+
+== 1. DEZI-authenticatie ==
+
+ZM -> EC: Start authenticatie
+EC -> DEZI: Authenticatieverzoek
+DEZI -> ZM: Authenticatieverzoek
+ZM -> DEZI: Authenticeren
+DEZI -> DEZI: Vaststellen identiteit en\nzorggerelateerde attributen
+DEZI --> EC: Ondertekende en versleutelde\nDEZI-authenticatieverklaring
+
+== 2. Ontsleutelen en valideren ==
+
+EC -> EC: Ontsleutelen met eigen private sleutel
+EC -> SDK: Aanbieden DEZI-authenticatieverklaring
+SDK -> SDK: Controleren handtekening DEZI/CIBG
+SDK -> SDK: Valideren identiteit en attributen
+
+alt Validatie succesvol
+    SDK -> SDK: Ondertekenen authenticatieverklaring
+    note right of SDK
+      Het resultaat is een ondertekend
+      validatiebewijs (proof).
+
+      Dit bewijst dat de identiteit en
+      DEZI-attributen succesvol zijn
+      gevalideerd door de zorgaanbieder.
+    end note
+    SDK --> EC: Ondertekend validatiebewijs
+else Validatie mislukt
+    SDK --> EC: Validatiefout
+    EC --> ZM: Authenticatie mislukt
+    break Proces beëindigd
+    end
+end
+
+== 3. Aanvraag persoonsgebonden signing-certificaat ==
+
+EC -> CA: Certificaataanvraag + ondertekend proof
+CA -> CA: Controleren aanvraag en validatiebewijs
+
+alt Aanvraag goedgekeurd
+    CA -> CA: Genereren sleutelpaar
+    CA -> CA: Uitgeven persoonsgebonden\nsigning-certificaat
+    CA --> EC: Signing-certificaat + sleutelmateriaal
+else Aanvraag afgewezen
+    CA --> EC: Afwijzing certificaataanvraag
+    EC --> ZM: Certificaatuitgifte mislukt
+    break Proces beëindigd
+    end
+end
+
+== 4. Ondertekenen AORTA-tokens ==
+
+
+group AORTA-token
+    EC -> EC: Opstellen AORTA-token
+    EC -> EC: Ondertekenen met persoonsgebonden\nZORG-ID signing-certificaat
+end
+
+== 5. LSP bevragen ==
+
+EC -> LSP: Aanbieden transactietoken,\nmandaattoken en inschrijftoken
+
+@enduml
