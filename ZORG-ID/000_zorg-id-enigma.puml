@@ -69,6 +69,34 @@ end
 
 group AORTA-token
     EC -> EC: Opstellen AORTA-token
+	
+	EC -> SDK: Aanbieden DEZI-authenticatieverklaring
+	SDK -> SDK: Controleren handtekening DEZI/CIBG
+	SDK -> SDK: Valideren identiteit en attributen
+
+	alt Validatie succesvol
+		SDK -> SDK: Ondertekenen authenticatieverklaring
+			note right of SDK
+				Het resultaat is een ondertekend
+				validatiebewijs (proof).
+
+				Dit bewijst dat de identiteit en
+				DEZI-attributen succesvol zijn
+				gevalideerd door de zorgaanbieder.
+			end note
+		SDK --> EC: Ondertekend validatiebewijs
+	else Validatie mislukt
+		SDK --> EC: Validatiefout
+		EC --> ZM: Authenticatie mislukt
+		break Proces beëindigd
+    end
+end
+
+	
+	
+	
+	
+	
     EC -> EC: Ondertekenen met persoonsgebonden\nZORG-ID signing-certificaat
 end
 
