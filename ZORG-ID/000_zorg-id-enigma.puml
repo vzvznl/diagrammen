@@ -50,7 +50,7 @@ end
 
 == 3. Aanvraag persoonsgebonden signing-certificaat ==
 
-EC -> CA: Certificaataanvraag + ondertekend proof
+EC -> CA: Certificaataanvraag + ondertekend validatiebewijs
 CA -> CA: Controleren aanvraag en validatiebewijs
 
 alt Aanvraag goedgekeurd
@@ -92,12 +92,9 @@ group AORTA-token
     end
 end
 
-	
-	
-	
-	
-	
-    EC -> EC: Ondertekenen met persoonsgebonden\nZORG-ID signing-certificaat
+	EC -> CA: Ondertekend validatiebewijs + AORTA-token
+	CA -> EC: AORTA-token ondertekend met persoonsgebonden\nZORG-ID signing-certificaat
+
 end
 
 == 5. LSP bevragen ==
